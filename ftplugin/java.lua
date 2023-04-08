@@ -27,9 +27,17 @@ local config = {
     java = {}
   },
   init_options = {
-    bundles = {}
+    bundles = {
+      vim.fn.glob("/Users/liyang/.local/share/nvim/lsp/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1)
+    }
   }
 }
+
+config['on_attach'] = function(client, bufnr)
+  require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+end
+
 require("jdtls").start_or_attach(config)
+
 
 

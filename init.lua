@@ -17,3 +17,6 @@ require("plugins/gitsigns")
 require("plugins/telescope")
 require("plugins/noice")
 -- require'lspconfig'.jdtls.setup{}
+require("plugins/mason")
+require("plugins/utils")
+require("plugins/toggleterm")

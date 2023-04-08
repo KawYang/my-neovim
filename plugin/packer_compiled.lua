@@ -129,6 +129,16 @@ _G.packer_plugins = {
     path = "/Users/liyang/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["mason-lspconfig"] = {
+    loaded = true,
+    path = "/Users/liyang/.local/share/nvim/site/pack/packer/start/mason-lspconfig",
+    url = "https://github.com/williamboman/mason-lspconfig"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/Users/liyang/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   ["noice.nvim"] = {
     config = { "\27LJ\2\n7\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\nnoice\frequire\0" },
     loaded = true,
@@ -154,6 +164,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/liyang/.local/share/nvim/site/pack/packer/start/nvim-dap",
     url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "/Users/liyang/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
+    url = "https://github.com/rcarriga/nvim-dap-ui"
   },
   ["nvim-jdtls"] = {
     loaded = true,
@@ -211,15 +226,15 @@ _G.packer_plugins = {
     path = "/Users/liyang/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["toggleterm.nvim"] = {
+    loaded = true,
+    path = "/Users/liyang/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
+  },
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "/Users/liyang/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
-  },
-  ["vim-floaterm"] = {
-    loaded = true,
-    path = "/Users/liyang/.local/share/nvim/site/pack/packer/start/vim-floaterm",
-    url = "https://github.com/voldikss/vim-floaterm"
   },
   ["vim-tmux-navigator"] = {
     loaded = true,

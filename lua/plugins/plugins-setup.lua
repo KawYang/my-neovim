@@ -40,12 +40,9 @@ return require('packer').startup(function(use)
   use "christoomey/vim-tmux-navigator" -- 用ctl-hjkl来定位窗口
   use "nvim-treesitter/nvim-treesitter" -- 语法高亮
   use "p00f/nvim-ts-rainbow" -- 配合treesitter，不同括号颜色区分
-  
-  --use {
-  --    "williamboman/mason.nvim",
-  --    "williamboman/mason-lspconfig.nvim",  -- 这个相当于mason.nvim和lspconfig的桥梁
-  --    "neovim/nvim-lspconfig"
-  --}
+
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig"
     
   -- 自动补全
   -- use "hrsh7th/nvim-cmp"
@@ -69,17 +66,9 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  -- java debugging
-  use 'mfussenegger/nvim-dap'
-  use 'rcarriga/cmp-dap'
   -- Packer - 隐藏命令行
   use({
     "folke/noice.nvim",
-    config = function()
-      require("noice").setup({
-          -- add any options here
-      })
-    end,
     requires = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
       "MunifTanjim/nui.nvim",
@@ -90,8 +79,9 @@ return require('packer').startup(function(use)
      }
   })
 
-
-  use 'voldikss/vim-floaterm'
+  -- 终端插件
+  use 'akinsho/toggleterm.nvim'
+--  use 'voldikss/vim-floaterm'
 
   -- jdtls demo
   --Nvim LSP 客户端的快速入门配置
@@ -115,6 +105,11 @@ return require('packer').startup(function(use)
       "https://gitcode.net/lxyoucan/friendly-snippets" --代码段合集
     }
   }
+
+   -- java debugging
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/cmp-dap'
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 
   if packer_bootstrap then
     require('packer').sync()
