@@ -21,12 +21,17 @@ keymap.set("n", "<leader>sh", "<C-w>s") -- 垂直新增窗口
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 -- 切换buffer
-keymap.set("n", "<C-L>", ":bnext<CR>")
-keymap.set("n", "<C-H>", ":bprevious<CR>")
+-- keymap.set("n", "<C-H>", ":bnext<CR>")
+-- keymap.set("n", "<C-K>", ":bprevious<CR>")
+keymap.set("n", "<C-J>", ":BufferLineCyclePrev<CR>")
+keymap.set("n", "<C-K>", ":BufferLineCycleNext<CR>")
+
 
 -- ---------- 插件 ---------- ---
 -- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+-- keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+keymap.set("n", "<leader>e", ":NeoTreeFloat<CR>")
+keymap.set("n", "<leader>E", ":NeoTreeShow<CR>")
 
 -- debuger
 
@@ -43,7 +48,8 @@ function get_spring_boot_runner(profile, debug)
 end
 
 function run_spring_boot(debug)
-  vim.cmd('FloatermNew ' .. get_spring_boot_runner('local', debug))
+  -- vim.cmd('FloatermNew ' .. get_spring_boot_runner('local', debug))
+  vim.cmd("TermExec cmd='" .. get_spring_boot_runner('local', debug) .. "'")
 end
 
 keymap.set("n", "<F9>", function() run_spring_boot() end)
@@ -65,7 +71,38 @@ function attach_to_debug()
   }
 
   local dapui = require("dapui")
-  dapui.setup({})
+  dapui.setup({
+    layouts = { {
+        elements = { {
+            id = "stacks",
+            size = 0.4
+          },{
+            id = "breakpoints",
+            size = 0.4
+          }, {
+            id = "watches",
+            size = 0.2
+          }
+        },
+        position = "left",
+        size = 40
+      }, {
+        elements = { {
+            id = "repl",
+            size = 0.5
+          }, {
+            id = "scopes",
+            size = 0.5
+          }, 
+       --[[    {
+            id = "console",
+            size = 0.5
+          } ]]
+        },
+        position = "bottom",
+        size = 10
+      } }
+  })
 
   dap.listeners.after.event_initialized["dapui_config"] = function()
       dapui.open({})
@@ -91,12 +128,11 @@ keymap.set('n', '<F8>', ':lua require"dap".step_over()<CR>')
 keymap.set('n', '<F7>', ':lua require"dap".step_into()<CR>')
 keymap.set('n', '<F6>', ':lua require"dap".step_out()<CR>')
 
-keymap.set('n', '<leader>b', ':lua require"dap".toggle_breakpoint()<CR>')
-keymap.set('n', '<leader>B', ':lua require"dap".set_breakpoint(vim.fn.input("Condition："))<CR>')
-keymap.set('n', '<leader>bl', ':lua require"dap".set_breakpoint(nil,nil,vim.fn.input("Log："))<CR>')
+keymap.set('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
+keymap.set('n', '<leader>dB', ':lua require"dap".set_breakpoint(vim.fn.input("Condition:"))<CR>')
+keymap.set('n', '<leader>bl', ':lua require"dap".set_breakpoint(nil,nil,vim.fn.input("Log:"))<CR>')
 keymap.set('n', '<leader>dr', ':lua require"dap".repl.open()<CR>')
 
 
 -- toggle
 
-return P

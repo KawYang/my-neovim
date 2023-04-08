@@ -1,8 +1,8 @@
 require("plugins.plugins-setup")
 
 require("core.options")
-require("core.keymaps")
 
+require("core.keymaps")
 -- 插件
 require("plugins.lualine")
 require("plugins/nvim-tree")
@@ -20,3 +20,8 @@ require("plugins/noice")
 require("plugins/mason")
 require("plugins/utils")
 require("plugins/toggleterm")
+
+
+
+
+
