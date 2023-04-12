@@ -15,13 +15,15 @@ require("bufferline").setup {
             highlight = "Directory",
             text_align = "left"
         }},
-
+        buffer_close_icon = '',
+        modified_icon = '●',
+        close_icon = "",
         -- 悬停展示
-        --[[ hover = {
-                enabled = true,
-                delay = 200,
-                reveal = {'close'}
-            }, ]]
+        -- hover = {
+        --         enabled = true,
+        --         delay = 200,
+        --         reveal = {'close'}
+        --     }, 
 
         -- "slant" | "slope" | "thick" | "thin" | { 'any', 'any' } 标签类型
         separator_style = "slant",

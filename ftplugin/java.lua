@@ -1,7 +1,7 @@
 
 local config = {
   cmd = {
-    "java",
+    "/Library/Java/JavaVirtualMachines/jdk-18.0.2.jdk/Contents/Home/bin/java",
 	"-Declipse.application=org.eclipse.jdt.ls.core.id1",
     "-Dosgi.bundles.defaultStartLevel=4",
     "-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -13,14 +13,14 @@ local config = {
     "java.base/java.util=ALL-UNNAMED",
     "--add-opens",
     "java.base/java.lang=ALL-UNNAMED",
-    "-javaagent:/Users/liyang/.local/share/nvim/lsp/jdt-language-server/lombok.jar",
-    -- "-Xbootclasspath/a:/Users/liyang/.local/share/nvim/lsp/jdt-language-server/lombok.jar",
+    "-javaagent:/Users/renyongzhen/.local/share/nvim/lsp/jdt-language-server/lombok.jar",
+    -- "-Xbootclasspath/a:/Users/renyongzhen/.local/share/nvim/lsp/jdt-language-server/lombok.jar",
     "-jar",
-    "/Users/liyang/.local/share/nvim/lsp/jdt-language-server/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
+    "/Users/renyongzhen/.local/share/nvim/lsp/jdt-language-server/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
     "-configuration",
-    "/Users/liyang/.local/share/nvim/lsp/jdt-language-server/config_mac",
+    "/Users/renyongzhen/.local/share/nvim/lsp/jdt-language-server/config_mac",
     "-data",
-    "/Users/liyang/.local/share/nvim/lsp/jdt-language-server/workspace/folder"
+    "/Users/renyongzhen/.local/share/nvim/lsp/jdt-language-server/workspace/folder"
   },
   root_dir = require("jdtls.setup").find_root({".git", "mvnw", "gradlew"}),
   settings = {
@@ -28,7 +28,7 @@ local config = {
   },
   init_options = {
     bundles = {
-      vim.fn.glob("/Users/liyang/.local/share/nvim/lsp/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1)
+      vim.fn.glob("/Users/renyongzhen/.local/share/nvim/lsp/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1)
     }
   }
 }

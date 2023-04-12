@@ -29,36 +29,36 @@ keymap.set("n", "<C-K>", ":BufferLineCycleNext<CR>")
 
 -- ---------- 插件 ---------- ---
 -- nvim-tree
--- keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
-keymap.set("n", "<leader>e", ":NeoTreeFloat<CR>")
-keymap.set("n", "<leader>E", ":NeoTreeShow<CR>")
+keymap.set("n", "<leader>E", ":NvimTreeToggle<CR>")
+-- keymap.set("n", "<leader>e", ":NeoTreeFloat<CR>")
+-- keymap.set("n", "<leader>E", ":NeoTreeShow<CR>")
 
 -- debuger
 
-function get_spring_boot_runner(profile, debug)
+function get_spring_boot_runner(profile, debug, port)
   local debug_param = ""
   if debug then
-    debug_param = '-Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"'
+    debug_param = '-Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=' .. port .. '"'
   end 
   local profile_param = ""
   if profile then
-    profile_param = " -Dspring-boot.run.profile=" .. profile .. " "
+    profile_param = ' -D"spring-boot.run.profiles"=' .. profile .. " "
   end
   return 'mvn spring-boot:run' .. profile_param .. debug_param
 end
 
-function run_spring_boot(debug)
+function run_spring_boot(profile, debug, port)
   -- vim.cmd('FloatermNew ' .. get_spring_boot_runner('local', debug))
-  vim.cmd("TermExec cmd='" .. get_spring_boot_runner('local', debug) .. "'")
+  vim.cmd("TermExec cmd='" .. get_spring_boot_runner(profile, debug, port) .. "'")
 end
 
-keymap.set("n", "<F9>", function() run_spring_boot() end)
-keymap.set("n", "<F10>", function() run_spring_boot(true) end)
+keymap.set("n", "<F9>", function() run_spring_boot(vim.fn.input("profile:"), false, vim.fn.input("port:")) end)
+keymap.set("n", "<F10>", function() run_spring_boot(vim.fn.input("profile:"), true, vim.fn.input("port:")) end)
 
 
 -- debug 配置
 
-function attach_to_debug()
+function attach_to_debug(port)
   local dap = require('dap')
   dap.configurations.java = {
    {
@@ -66,7 +66,7 @@ function attach_to_debug()
      request = 'attach';
      name = "Attach to thie process";
      hostName = 'localhost';
-     port = '5005';
+     port = port;
    }
   }
 
@@ -121,7 +121,7 @@ function attach_to_debug()
 end
 
 
-keymap.set('n', '<leader>da', ':lua attach_to_debug()<CR>')
+keymap.set('n', '<leader>da', ':lua attach_to_debug(vim.fn.input("port:"))<CR>')
 
 keymap.set('n', '<F5>', ':lua require"dap".continue()CR>')
 keymap.set('n', '<F8>', ':lua require"dap".step_over()<CR>')

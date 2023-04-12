@@ -1,4 +1,4 @@
--- require("nvim-tree").setup()
+require("nvim-tree").setup()
 --[[ require("neo-tree").setup({
       default_component_configs = {
         symbols = {
