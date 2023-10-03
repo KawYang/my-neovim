@@ -92,6 +92,24 @@ return require("packer").startup(function(use)
     -- 终端插件
     use 'akinsho/toggleterm.nvim'
 
+
+
+    -- >>> dap >>>
+    use 'mfussenegger/nvim-jdtls'
+    use 'hrsh7th/nvim-cmp'
+    use 'rcarriga/cmp-dap'
+    use 'theHamsta/nvim-dap-virtual-text'
+
+    use {
+        'mfussenegger/nvim-dap',
+        branch = "master"
+    }
+
+    use {
+        'rcarriga/nvim-dap-ui',
+        requires = {"mfussenegger/nvim-dap"} ,
+    }
+
     if packer_bootstrap then
         require("packer").sync()
     end
