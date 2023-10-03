@@ -66,6 +66,28 @@ return require("packer").startup(function(use)
         run = 'make'
     }
 
+    -- git 相关
+    use 'lewis6991/gitsigns.nvim'
+    use 'sindrets/diffview.nvim'
+
+    -- which key
+    use 'folke/which-key.nvim'
+
+    -- hope
+    use {
+        'phaazon/hop.nvim',
+        branch = 'v2', -- optional but strongly recommended
+        config = function()
+            -- you can configure Hop the way you like here; see :h hop-config
+            require'hop'.setup {
+                keys = 'etovxqpdygfblzhckisuran'
+            }
+        end
+    }
+
+    -- 终端插件
+    use 'akinsho/toggleterm.nvim'
+
     if packer_bootstrap then
         require("packer").sync()
     end
