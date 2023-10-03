@@ -24,37 +24,47 @@ vim.cmd([[
 
 return require("packer").startup(function(use)
     -- packe 插件
-    use "wbthomason/packer.nvim"
+    use 'wbthomason/packer.nvim'
 
     -- >>> core >>>
     -- 主题插件 状态来
-    use "folke/tokyonight.nvim" -- 主题
+    use 'folke/tokyonight.nvim'
+    -- 图标
     use 'nvim-tree/nvim-web-devicons'
+    -- 状态栏
     use {
-        "nvim-lualine/lualine.nvim", -- 状态栏
+        'nvim-lualine/lualine.nvim',
         requires = {
-            "kyazdani42/nvim-web-devicons",
+            'kyazdani42/nvim-web-devicons',
             opt = true
-        } -- 状态栏图标
+        }
     }
 
     -- 欢迎页
     use {
         'glepnir/dashboard-nvim',
-        requires = {
-            'nvim-tree/nvim-web-devicons'
-        }
+        requires = {'nvim-tree/nvim-web-devicons'}
     }
 
     -- 目录树
     use {
-        'nvim-tree/nvim-tree.lua', -- 文档树
+        'nvim-tree/nvim-tree.lua',
         lazy = true,
-        requires = {
-            'nvim-tree/nvim-web-devicons' -- 文档树图标
-        }
+        requires = {'nvim-tree/nvim-web-devicons'}
     }
 
+    -- 文件检索
+    use {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.2',
+        requires = {'nvim-lua/plenary.nvim'}
+    }
+    use 'nvim-telescope/telescope-live-grep-args.nvim'
+    use {'nvim-telescope/telescope-ui-select.nvim'}
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'make'
+    }
 
     if packer_bootstrap then
         require("packer").sync()
