@@ -46,6 +46,10 @@ return require("packer").startup(function(use)
         requires = {'nvim-tree/nvim-web-devicons'}
     }
 
+    -- buffer分割线
+    use 'akinsho/bufferline.nvim'
+
+
     -- 目录树
     use {
         'nvim-tree/nvim-tree.lua',
