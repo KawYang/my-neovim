@@ -26,6 +26,25 @@ return require("packer").startup(function(use)
     -- packe 插件
     use "wbthomason/packer.nvim"
 
+    -- >>> core >>>
+    -- 主题插件 状态来
+    use "folke/tokyonight.nvim" -- 主题
+    use {
+        "nvim-lualine/lualine.nvim", -- 状态栏
+        requires = {
+            "kyazdani42/nvim-web-devicons",
+            opt = true
+        } -- 状态栏图标
+    }
+    -- 目录树
+    use {
+        'nvim-tree/nvim-tree.lua', -- 文档树
+        lazy = true,
+        requires = {'nvim-tree/nvim-web-devicons' -- 文档树图标
+        }
+    }
+
+
     if packer_bootstrap then
         require("packer").sync()
     end

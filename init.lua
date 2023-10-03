@@ -5,3 +5,4 @@ require("core.keymaps")
 
 
 
+require("core.plugin.nvim-tree")
