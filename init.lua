@@ -6,6 +6,7 @@ require("core.keymaps")
 
 
 require("core.plugin.bufferline")
+require("core.plugin.lualine")
 require("core.plugin.which-key")
 require("core.plugin.toggleterm")
 require("core.plugin.nvim-tree")
