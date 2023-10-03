@@ -20,4 +20,5 @@ require("core.plugin.which-key")
 require("dap.lsp")
 require("dap.java")
 require("dap.cmp")
+require'lspconfig'.jdtls.setup{}
 

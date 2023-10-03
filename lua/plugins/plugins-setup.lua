@@ -103,6 +103,9 @@ return require("packer").startup(function(use)
     use 'rcarriga/cmp-dap'
     use 'theHamsta/nvim-dap-virtual-text'
 
+
+    use 'microsoft/java-debug'
+
     use {
         'mfussenegger/nvim-dap',
         branch = "master"
@@ -119,13 +122,22 @@ return require("packer").startup(function(use)
     use 'hrsh7th/cmp-nvim-lsp'
     use 'neovim/nvim-lspconfig'
     -- ??
-    use 'L3MON4D3/LuaSnip'
-    -- ??
     use 'saadparwaiz1/cmp_luasnip'
     -- ?
     use 'rafamadriz/friendly-snippets'
     -- 路径
     use 'hrsh7th/cmp-path'
+
+    -- 代码段提示
+    use {
+        'L3MON4D3/LuaSnip',
+        requires = {
+            'https://gitcode.net/lxyoucan/cmp_luasnip', -- Snippets source for nvim-cmp
+            'https://gitcode.net/lxyoucan/friendly-snippets' -- 代码段合集
+        }
+    }
+
+
 
     if packer_bootstrap then
         require("packer").sync()

@@ -55,8 +55,10 @@ local config = {
   --
   -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
   init_options = {
-    bundles = {}
-  },
+    bundles = {
+        vim.fn.glob("~/tools/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar", 1);
+    }
+  },  
 }
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
