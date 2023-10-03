@@ -95,8 +95,11 @@ return require("packer").startup(function(use)
 
 
     -- >>> dap >>>
+    -- mason
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig'
+    -- dap 
     use 'mfussenegger/nvim-jdtls'
-    use 'hrsh7th/nvim-cmp'
     use 'rcarriga/cmp-dap'
     use 'theHamsta/nvim-dap-virtual-text'
 
@@ -109,6 +112,20 @@ return require("packer").startup(function(use)
         'rcarriga/nvim-dap-ui',
         requires = {"mfussenegger/nvim-dap"} ,
     }
+
+    -- 代码提示
+    use 'hrsh7th/nvim-cmp'
+    -- ??
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'neovim/nvim-lspconfig'
+    -- ??
+    use 'L3MON4D3/LuaSnip'
+    -- ??
+    use 'saadparwaiz1/cmp_luasnip'
+    -- ?
+    use 'rafamadriz/friendly-snippets'
+    -- 路径
+    use 'hrsh7th/cmp-path'
 
     if packer_bootstrap then
         require("packer").sync()
