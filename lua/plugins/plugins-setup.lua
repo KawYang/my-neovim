@@ -29,6 +29,7 @@ return require("packer").startup(function(use)
     -- >>> core >>>
     -- 主题插件 状态来
     use "folke/tokyonight.nvim" -- 主题
+    use 'nvim-tree/nvim-web-devicons'
     use {
         "nvim-lualine/lualine.nvim", -- 状态栏
         requires = {
@@ -36,11 +37,21 @@ return require("packer").startup(function(use)
             opt = true
         } -- 状态栏图标
     }
+
+    -- 欢迎页
+    use {
+        'glepnir/dashboard-nvim',
+        requires = {
+            'nvim-tree/nvim-web-devicons'
+        }
+    }
+
     -- 目录树
     use {
         'nvim-tree/nvim-tree.lua', -- 文档树
         lazy = true,
-        requires = {'nvim-tree/nvim-web-devicons' -- 文档树图标
+        requires = {
+            'nvim-tree/nvim-web-devicons' -- 文档树图标
         }
     }
 
