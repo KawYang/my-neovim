@@ -5,8 +5,8 @@ function get_spring_boot_runner(profile, debug, port)
     local debug_param = ""
     if debug then
         debug_param =
-            '-Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=' .. port ..
-                '"'
+        '-Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=' .. port ..
+        '"'
     end
     local profile_param = ""
     if profile then

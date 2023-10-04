@@ -6,7 +6,7 @@ keymap.set('n', '¬', ':AutoformatLine<CR>')
 keymap.set('n', '<M-CR>', ':lua vim.lsp.buf.code_action()<CR>')
 -- debug 配置
 
-function attach_to_debug(port1)
+function attach_to_debug(port)
     local dap = require('dap')
 
     dap.configurations.java = {{
@@ -14,7 +14,7 @@ function attach_to_debug(port1)
         request = 'attach',
         name = 'java attach',
         hostName = '127.0.0.1',
-        port = port1
+        port = port,
     }}
 
     dap.adapters.java = function(callback, config)
