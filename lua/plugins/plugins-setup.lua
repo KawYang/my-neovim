@@ -111,6 +111,8 @@ return require("packer").startup(function(use)
     -- format
     use 'Chiel92/vim-autoformat'
 
+    -- 注释
+    use 'numToStr/Comment.nvim'
 
     -- >>> dap >>>
     -- mason

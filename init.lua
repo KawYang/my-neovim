@@ -24,6 +24,8 @@ require("dap.lsp")
 require("dap.java")
 require("dap.cmp")
 require("dap.treesitter")
+require("dap.comment")
+
 require'lspconfig'.jdtls.setup{}
 
 
