@@ -3,7 +3,7 @@ local jdtls_util = require('jdtls.util')
 
 -- format 快捷方式
 keymap.set('n', '¬', ':AutoformatLine<CR>')
-
+keymap.set('n', '<M-CR>', ':lua vim.lsp.buf.code_action()<CR>')
 -- debug 配置
 
 function attach_to_debug(port1)

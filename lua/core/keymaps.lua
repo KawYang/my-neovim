@@ -44,6 +44,7 @@ keymap.set("n", "<leader>hl", ":HopLine<CR>")
 keymap.set("n", "<leader>hll", ":HopLineStart<CR>")
 
 keymap.set("n", "<leader>lg", ":TermExec cmd='lg'<CR>")
+keymap.set("n", "lg", ":TermExec cmd='lg'<CR>")
 
 keymap.set("n", "<leader>e", ":Telescope buffers<CR>")
 keymap.set("n", "<C-t>", ":ToggleTerm<CR>")
