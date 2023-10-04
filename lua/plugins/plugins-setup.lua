@@ -104,6 +104,10 @@ return require("packer").startup(function(use)
     use 'theHamsta/nvim-dap-virtual-text'
 
 
+    -- 
+    use 'nvim-treesitter/nvim-treesitter'
+
+
     use 'microsoft/java-debug'
 
     use {

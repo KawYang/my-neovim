@@ -17,8 +17,10 @@ require("core.plugin.gitdiffview")
 require("core.plugin.which-key")
 
 -- >>> dap >>> 
+require("dap.dap")
 require("dap.lsp")
 require("dap.java")
 require("dap.cmp")
+require("dap.treesitter")
 require'lspconfig'.jdtls.setup{}
 
