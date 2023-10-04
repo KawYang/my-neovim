@@ -17,7 +17,7 @@ require("nvim-dap-virtual-text").setup({
 
 
 -- 调试工具快捷键
--- nvim-dap 
+-- nvim-dap
 local dap_breakpoint_color = {
     breakpoint = {
         ctermbg=0,
@@ -90,11 +90,11 @@ dap.adapters.python = {
     args = { '-m', 'debugpy.adapter' };
 }
 dap.configurations.python = {
-      {
+    {
         type = 'python';
         request = 'launch';
         name = "Launch file";
         program = "${file}";
-      },
-    }
+    },
+}
 

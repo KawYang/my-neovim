@@ -17,8 +17,8 @@ local packer_bootstrap = ensure_packer()
 -- plugins.lua改成了plugins-setup.lua，适应本地文件名字
 vim.cmd([[
     augroup packer_user_config
-        autocmd!
-        autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
+    autocmd!
+    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
     augroup end
 ]])
 
@@ -78,9 +78,9 @@ return require("packer").startup(function(use)
         requires = {
             -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
             "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
+            -- OPTIONAL:
+            --   `nvim-notify` is only needed, if you want to use the notification view.
+            --   If not available, we use `mini` as the fallback
             "rcarriga/nvim-notify",
         }
     })
@@ -108,18 +108,21 @@ return require("packer").startup(function(use)
     use 'akinsho/toggleterm.nvim'
 
 
+    -- format
+    use 'Chiel92/vim-autoformat'
+
 
     -- >>> dap >>>
     -- mason
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig'
-    -- dap 
+    -- dap
     use 'mfussenegger/nvim-jdtls'
     use 'rcarriga/cmp-dap'
     use 'theHamsta/nvim-dap-virtual-text'
 
 
-    -- 
+    --
     use 'nvim-treesitter/nvim-treesitter'
 
 

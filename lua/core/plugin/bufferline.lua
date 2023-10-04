@@ -20,16 +20,16 @@ require("bufferline").setup {
         close_icon = "",
         -- 悬停展示
         hover = {
-                enabled = true,
-                delay = 200,
-                reveal = {'close'}
-            }, 
+            enabled = true,
+            delay = 200,
+            reveal = {'close'}
+        },
 
         -- "slant" | "slope" | "thick" | "thin" | { 'any', 'any' } 标签类型
         separator_style = "slant",
         indicator = {
-                style = 'underline', -- | 'underline' ,
-            },
+            style = 'underline', -- | 'underline' ,
+        },
     }
 }
 
