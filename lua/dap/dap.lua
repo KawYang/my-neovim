@@ -42,7 +42,7 @@ vim.api.nvim_set_hl(0, 'DapStopped', dap_breakpoint_color.stopped)
 
 local dap_breakpoint = {
     error = {
-        text = "",
+        text = "",
         texthl = "DapBreakpoint",
         linehl = "DapBreakpoint",
         numhl = "DapBreakpoint",
@@ -54,7 +54,7 @@ local dap_breakpoint = {
         numhl = 'DapBreakpoint',
     },
     rejected = {
-        text = "",
+        text = "",
         texthl = "DapBreakpint",
         linehl = "DapBreakpoint",
         numhl = "DapBreakpoint",
@@ -78,3 +78,23 @@ vim.fn.sign_define('DapBreakpointCondition', dap_breakpoint.condition)
 vim.fn.sign_define('DapBreakpointRejected', dap_breakpoint.rejected)
 vim.fn.sign_define('DapLogPoint', dap_breakpoint.logpoint)
 vim.fn.sign_define('DapStopped', dap_breakpoint.stopped)
+
+
+
+
+-- adapter config
+local dap = require("dap")
+dap.adapters.python = {
+    type = 'executable';
+    command = 'python';
+    args = { '-m', 'debugpy.adapter' };
+}
+dap.configurations.python = {
+      {
+        type = 'python';
+        request = 'launch';
+        name = "Launch file";
+        program = "${file}";
+      },
+    }
+
