@@ -49,6 +49,8 @@ return require("packer").startup(function(use)
     -- buffer分割线
     use 'akinsho/bufferline.nvim'
 
+    -- 自动补全括号
+    use "windwp/nvim-autopairs"
 
     -- 目录树
     use {
