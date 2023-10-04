@@ -16,6 +16,7 @@ require("core.plugin.gitsigns")
 require("core.plugin.gitdiffview")
 require("core.plugin.which-key")
 require("core.plugin.autopairs")
+require("core.plugin.noice")
 
 -- >>> dap >>> 
 require("dap.dap")
