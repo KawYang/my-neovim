@@ -107,7 +107,6 @@ return require("packer").startup(function(use)
     -- 终端插件
     use 'akinsho/toggleterm.nvim'
 
-
     -- format
     use 'Chiel92/vim-autoformat'
 
@@ -151,7 +150,7 @@ return require("packer").startup(function(use)
     use 'rafamadriz/friendly-snippets'
     -- 路径
     use 'hrsh7th/cmp-path'
-
+    use 'folke/neodev.nvim'
     -- 代码段提示
     use {
         'L3MON4D3/LuaSnip',
@@ -161,6 +160,31 @@ return require("packer").startup(function(use)
         }
     }
 
+    use ({
+        'nvimdev/lspsaga.nvim'
+    })
+
+    use ({
+        "jose-elias-alvarez/null-ls.nvim",
+        event = { "BufReadPost", "BufNewFile" },
+        dependencies = {
+            "jay-babu/mason-null-ls.nvim",
+        },
+        config = function()
+            local tools = {
+                "black",
+            }
+
+            require("mason-null-ls").setup({
+                ensure_installed = tools,
+                handlers = {},
+            })
+
+            require("null-ls").setup({
+                sources = {},
+            })
+        end
+    })
 
 
     if packer_bootstrap then

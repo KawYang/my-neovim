@@ -18,7 +18,17 @@ require("mason-lspconfig").setup({
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+require('lspsaga').setup({
+  -- add any options here, or leave empty to use the default settings
+})
+
+require("neodev").setup({
+  -- add any options here, or leave empty to use the default settings
+})
 require("lspconfig").lua_ls.setup {
   capabilities = capabilities,
 }
 
+local keymap = vim.keymap
+-- option - B
+keymap.set('n', '∫', ':Lspsaga finder<CR>')

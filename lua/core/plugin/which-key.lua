@@ -43,6 +43,6 @@ wk.register({
     l = {
         name = "Lazy Plugins",
         g = "Lazy git",
-    },
+    }
 }, { prefix = "<leader>" })
 
