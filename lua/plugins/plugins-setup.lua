@@ -186,6 +186,21 @@ return require("packer").startup(function(use)
         end
     })
 
+    --     "JuanZoran/Trans.nvim",
+    --     keys = {
+    --         { {'n', 'x'}, 'mm' }, -- 换成其他你想用的key即可
+    --         { {'n', 'x'}, 'mk' },
+    --         { 'n', 'mi' },
+    --     },
+    --     run = function() require('Trans').install() end, -- 自动下载使用的本地词库
+    --     requires = { 'kkharji/sqlite.lua',  },
+    --     config = function()
+    --         vim.keymap.set({"n", 'x'}, "mm", '<Cmd>Translate<CR>') -- 自动判断visual 还是 normal 模式
+    --         vim.keymap.set({'n', 'x'}, 'mk', '<Cmd>TransPlay<CR>') -- 自动发音选中或者光标下的单词
+    --         vim.keymap.set('n', 'mi', '<Cmd>TransInput<CR>')
+    --     end
+    -- }
+
 
     if packer_bootstrap then
         require("packer").sync()
