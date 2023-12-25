@@ -1,7 +1,7 @@
 local keymap = vim.keymap
 
 -- debuger
-function get_spring_boot_runner(profile, debug, port)
+local function get_spring_boot_runner(profile, debug, port)
     local debug_param = ""
     if debug then
         debug_param =
@@ -15,7 +15,7 @@ function get_spring_boot_runner(profile, debug, port)
     return 'mvn spring-boot:run' .. profile_param .. debug_param
 end
 
-function run_spring_boot(profile, debug, port)
+local function run_spring_boot(profile, debug, port)
     -- vim.cmd('FloatermNew ' .. get_spring_boot_runner('local', debug))
     vim.cmd("TermExec cmd='" .. get_spring_boot_runner(profile, debug, port) .. "'")
 end
